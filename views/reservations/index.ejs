@@ -12,13 +12,17 @@
       <div class="card my-5">
         <div class="card-header">
           <h5 class="card-title">
-            for: <%= reservation.restaurant %>
+            Reservation for: <%= reservation.user.fullname %>
           </h5>
         </div>
 
         <div class="card-body">
           <p class="card-text">
-            Your reservation is for <strong><%= (new Date(reservation.dateAndTime)).toLocaleString('en-CA') %></strong> for <%= reservation.quantityOfGuests > 1 ? 'person' : 'people' %>. Please be on time to avoid losing your seat.
+            Your reservation is from <strong><%= reservation.checkIn %></strong> to <strong><%= reservation.checkOut %></strong> for <%= reservation.numOfOccupants %> <%= reservation.numOfOccupants > 1 ? 'people' : 'person' %>.
+          </p>
+
+          <p>
+            Your room is a <%= reservation.roomType %>.
           </p>
         </div>
 
